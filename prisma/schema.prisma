@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           Int          @id @default(autoincrement())
+  email        String       @unique
+  password     String
+  role         String       @default("MEMBER")
+  isVerified   Boolean      @default(false)
+  verifyToken  String?
+  createdAt    DateTime     @default(now())
+  participant  Participant?
+}
+
+model Participant {
+  id         Int      @id @default(autoincrement())
+  userId     Int      @unique
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fullName   String
+  phone      String
+  nationalId String
+  school     String
+  ideaDesc   String
+  createdAt  DateTime @default(now())
+}
+
+model News {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
