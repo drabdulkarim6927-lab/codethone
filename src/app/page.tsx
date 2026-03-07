@@ -29,23 +29,22 @@ export default async function Home() {
           <div className="max-w-5xl mx-auto text-center relative">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2 text-sm mb-8 backdrop-blur-sm">
               <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
-              التسجيل مفتوح الآن!
+              التسجيل مفتوح الآن | المقاعد محدودة
             </div>
 
             <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-              كود <span className="text-orange-400">ثون</span>
+              كودثون <span className="text-orange-400">Codethon</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-4 font-medium">
-              مسابقة البرمجة والابتكار التقني الوطنية
+              مسرّع الابتكار لتطوير تطبيقات الجيل القادم بالذكاء الاصطناعي
             </p>
             <p className="text-base md:text-lg text-blue-200 mb-10 max-w-2xl mx-auto leading-relaxed">
-              أطلق إبداعك التقني، وشارك في أكبر مسابقة برمجية للطلاب على مستوى المملكة.
-              فرصتك لتُثبت موهبتك وتفوز بجوائز قيّمة!
+              تجربة تقنية مكثفة لمدة ثلاثة أيام يعمل فيها الطلاب الموهوبون على تطوير نماذج أولية لتطبيقات الهاتف والويب باستخدام الذكاء الاصطناعي التوليدي كمساعد برمجي، لتحويل الأفكار المبتكرة إلى حلول تقنية قابلة للتطبيق.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/register" className="btn-accent text-lg py-4 px-10 shadow-xl shadow-orange-500/30">
-                سجّل الآن مجاناً
+                قدّم طلب المشاركة
               </Link>
               <Link href="#about" className="btn-secondary border-white/50 text-white hover:bg-white/10 text-lg py-4 px-10">
                 اعرف أكثر
@@ -55,12 +54,12 @@ export default async function Home() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mt-16 max-w-xl mx-auto">
               {[
-                { label: "مشارك مسجل", value: "500+" },
-                { label: "مدرسة", value: "50+" },
-                { label: "جائزة نقدية", value: "100,000 ريال" },
+                { label: "ابتكاري", value: "برنامج تنافسي" },
+                { label: "والموهوبات", value: "الطلبة الموهوبون" },
+                { label: "واحتضان المشاريع الواعدة", value: "فرص تطوير" },
               ].map((stat) => (
                 <div key={stat.label} className="glass rounded-xl p-4 text-center">
-                  <div className="text-2xl font-black text-white">{stat.value}</div>
+                  <div className="text-xl font-black text-white leading-snug">{stat.value}</div>
                   <div className="text-blue-200 text-xs mt-1">{stat.label}</div>
                 </div>
               ))}
