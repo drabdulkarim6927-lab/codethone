@@ -24,10 +24,6 @@ export function proxy(req: NextRequest) {
     return res;
   }
 
-  if (!user.isVerified) {
-    return NextResponse.redirect(new URL("/login", req.url));
-  }
-
   if (adminRoutes.some((r) => pathname.startsWith(r))) {
     if (user.role !== "ADMIN" && user.role !== "SUPER_ADMIN") {
       return NextResponse.redirect(new URL("/", req.url));
