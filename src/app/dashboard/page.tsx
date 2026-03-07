@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { ROLE_LABELS } from "@/lib/helpers";
+import { ROLE_LABELS } from "@/lib/constants";
 
 type Tab = "overview" | "users" | "participants" | "news";
 
