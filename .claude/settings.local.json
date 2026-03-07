@@ -17,7 +17,10 @@
       "Bash(git add -A)",
       "Bash(git commit -m \"Initial commit: كود ثون website\")",
       "Bash(git config user.email \"admin@codethon.sa\")",
-      "Bash(git config user.name \"Codethon\")"
+      "Bash(git config user.name \"Codethon\")",
+      "Bash(npm install @netlify/plugin-nextjs)",
+      "Bash(npx prisma generate)",
+      "Bash(git commit -m \"feat: switch to PostgreSQL + add Netlify config\")"
     ]
   }
 }

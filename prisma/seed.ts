@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 async function main() {
   const password = await bcrypt.hash("Admin@123456", 12);
 
-  const admin = await prisma.user.upsert({ // eslint-disable-line
+  await prisma.user.upsert({
     where: { email: "admin@codethon.sa" },
     update: {},
     create: {
@@ -17,24 +17,16 @@ async function main() {
     },
   });
 
-  console.log("✅ تم إنشاء حساب المدير العام:");
-  console.log(`   البريد: admin@codethon.sa`);
-  console.log(`   كلمة المرور: Admin@123456`);
-  console.log(`   الدور: SUPER_ADMIN`);
+  console.log("✅ تم إنشاء حساب المدير العام: admin@codethon.sa / Admin@123456");
 
-  // Sample news (SQLite does not support skipDuplicates)
-  const newsTitles = await prisma.news.findMany({ select: { title: true } });
-  const existingTitles = new Set(newsTitles.map((n) => n.title));
-  const newsData = [
-    { title: "افتتاح باب التسجيل في مسابقة كود ثون 2025", content: "يسعدنا الإعلان عن فتح باب التسجيل في مسابقة كود ثون للعام 2025." },
-    { title: "موعد إغلاق التسجيل", content: "آخر موعد لتقديم طلبات التسجيل هو 30 مارس 2025." },
-    { title: "ورشة عمل تحضيرية", content: "سيتم تنظيم ورشة عمل تحضيرية لجميع المشاركين المسجلين." },
-  ];
-  for (const news of newsData) {
-    if (!existingTitles.has(news.title)) {
-      await prisma.news.create({ data: news });
-    }
-  }
+  await prisma.news.createMany({
+    skipDuplicates: true,
+    data: [
+      { title: "افتتاح باب التسجيل في مسابقة كود ثون 2025", content: "يسعدنا الإعلان عن فتح باب التسجيل في مسابقة كود ثون للعام 2025. المسابقة متاحة لجميع طلاب المدارس المتوسطة والثانوية." },
+      { title: "موعد إغلاق التسجيل", content: "آخر موعد لتقديم طلبات التسجيل هو 30 مارس 2025. يرجى التأكد من استيفاء جميع البيانات المطلوبة." },
+      { title: "ورشة عمل تحضيرية", content: "سيتم تنظيم ورشة عمل تحضيرية لجميع المشاركين المسجلين في المسابقة." },
+    ],
+  });
 
   console.log("✅ تم إضافة أخبار تجريبية");
 }
