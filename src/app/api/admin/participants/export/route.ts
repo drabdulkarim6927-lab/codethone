@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
       orderBy: { createdAt: "desc" },
     });
 
-    const header = "ID,الاسم الرباعي,البريد الإلكتروني,الجوال,رقم الهوية,المدرسة,وصف الفكرة,تاريخ التسجيل\n";
+    const header = "ID,الاسم الرباعي,البريد الإلكتروني,الجوال,رقم الهوية,المدرسة,المدينة,المرحلة,وصف الفكرة,تاريخ التسجيل\n";
     const rows = participants
       .map((p) =>
         [
@@ -24,6 +24,8 @@ export async function GET(req: NextRequest) {
           p.phone,
           p.nationalId,
           `"${p.school}"`,
+          `"${p.city}"`,
+          `"${p.stage}"`,
           `"${p.ideaDesc.replace(/"/g, '""')}"`,
           new Date(p.createdAt).toLocaleDateString("ar-SA"),
         ].join(",")

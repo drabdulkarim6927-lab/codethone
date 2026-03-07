@@ -24,6 +24,8 @@ export default function CompetePage() {
     phone: "",
     nationalId: "",
     school: "",
+    city: "",
+    stage: "",
     ideaDesc: "",
   });
 
@@ -35,10 +37,6 @@ export default function CompetePage() {
     }
     try {
       const payload = JSON.parse(atob(token.split(".")[1])) as UserPayload;
-      if (!payload.isVerified) {
-        router.push("/login");
-        return;
-      }
       setUser(payload);
     } catch {
       localStorage.removeItem("token");
@@ -238,6 +236,43 @@ export default function CompetePage() {
                   required
                   className="input-field"
                 />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {/* City */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    المدينة <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    value={form.city}
+                    onChange={onChange}
+                    placeholder="مثال: الرياض"
+                    required
+                    className="input-field"
+                  />
+                </div>
+
+                {/* Stage */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    المرحلة الدراسية <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    name="stage"
+                    value={form.stage}
+                    onChange={(e) => setForm((prev) => ({ ...prev, stage: e.target.value }))}
+                    required
+                    className="input-field"
+                  >
+                    <option value="">اختر المرحلة</option>
+                    <option value="المرحلة الابتدائية">المرحلة الابتدائية</option>
+                    <option value="المرحلة المتوسطة">المرحلة المتوسطة</option>
+                    <option value="المرحلة الثانوية">المرحلة الثانوية</option>
+                  </select>
+                </div>
               </div>
 
               {/* Idea Description */}

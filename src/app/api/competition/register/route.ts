@@ -10,13 +10,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "يُرجى تسجيل الدخول أولاً" }, { status: 401 });
     }
 
-    if (!user.isVerified) {
-      return NextResponse.json({ message: "يُرجى تفعيل بريدك الإلكتروني أولاً" }, { status: 403 });
-    }
+    const { fullName, phone, nationalId, school, city, stage, ideaDesc } = await req.json();
 
-    const { fullName, phone, nationalId, school, ideaDesc } = await req.json();
-
-    if (!fullName || !phone || !nationalId || !school || !ideaDesc) {
+    if (!fullName || !phone || !nationalId || !school || !city || !stage || !ideaDesc) {
       return NextResponse.json({ message: "جميع الحقول مطلوبة" }, { status: 400 });
     }
 
@@ -30,7 +26,7 @@ export async function POST(req: NextRequest) {
     }
 
     const participant = await prisma.participant.create({
-      data: { userId: user.userId, fullName, phone, nationalId, school, ideaDesc },
+      data: { userId: user.userId, fullName, phone, nationalId, school, city, stage, ideaDesc },
     });
 
     return NextResponse.json({ message: "تم التسجيل في المسابقة بنجاح", participant }, { status: 201 });

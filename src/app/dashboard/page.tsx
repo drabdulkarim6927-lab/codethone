@@ -28,6 +28,8 @@ interface Participant {
   phone: string;
   nationalId: string;
   school: string;
+  city: string;
+  stage: string;
   ideaDesc: string;
   createdAt: string;
   user: { email: string };
@@ -335,6 +337,8 @@ export default function DashboardPage() {
                     <th>الجوال</th>
                     <th>رقم الهوية</th>
                     <th>المدرسة</th>
+                    <th>المدينة</th>
+                    <th>المرحلة</th>
                     <th>الفكرة / المشروع</th>
                     <th>تاريخ التسجيل</th>
                   </tr>
@@ -348,6 +352,8 @@ export default function DashboardPage() {
                       <td dir="ltr">{p.phone}</td>
                       <td dir="ltr">{p.nationalId}</td>
                       <td>{p.school}</td>
+                      <td>{p.city}</td>
+                      <td><span className="badge-blue text-xs">{p.stage}</span></td>
                       <td className="max-w-xs">
                         <p className="truncate text-sm text-gray-600" title={p.ideaDesc}>{p.ideaDesc}</p>
                       </td>
