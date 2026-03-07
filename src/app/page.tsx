@@ -141,33 +141,6 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Prizes Section */}
-        <section id="prizes" className="py-20 px-4 bg-white">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-14">
-              <h2 className="section-title">الجوائز</h2>
-              <p className="section-subtitle">جوائز قيّمة تنتظر المتميزين</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { place: "🥇", rank: "المركز الأول", prize: "50,000 ريال", bg: "from-yellow-50 to-orange-50", border: "border-yellow-200", badge: "bg-yellow-100 text-yellow-800" },
-                { place: "🥈", rank: "المركز الثاني", prize: "30,000 ريال", bg: "from-gray-50 to-slate-50", border: "border-gray-200", badge: "bg-gray-200 text-gray-800" },
-                { place: "🥉", rank: "المركز الثالث", prize: "20,000 ريال", bg: "from-orange-50 to-amber-50", border: "border-orange-200", badge: "bg-orange-100 text-orange-800" },
-              ].map((p) => (
-                <div key={p.rank} className={`card bg-gradient-to-b ${p.bg} border ${p.border} text-center hover:shadow-xl transition-all`}>
-                  <div className="text-6xl mb-4">{p.place}</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">{p.rank}</h3>
-                  <div className={`inline-block px-5 py-2 rounded-full font-black text-2xl ${p.badge}`}>
-                    {p.prize}
-                  </div>
-                  <p className="text-gray-500 text-sm mt-3">+ شهادة تقدير وميدالية</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* News Section */}
         {news.length > 0 && (
           <section className="py-20 px-4 bg-gray-50">
