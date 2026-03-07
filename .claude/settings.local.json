@@ -20,7 +20,23 @@
       "Bash(git config user.name \"Codethon\")",
       "Bash(npm install @netlify/plugin-nextjs)",
       "Bash(npx prisma generate)",
-      "Bash(git commit -m \"feat: switch to PostgreSQL + add Netlify config\")"
+      "Bash(git commit -m \"feat: switch to PostgreSQL + add Netlify config\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"C:/Users/alkmp/OneDrive/Desktop/make-zip-netlify.ps1\")",
+      "Bash(git remote add origin https://github.com/drabdulkarim6927-lab/codethone.git)",
+      "Bash(git remote set-url origin https://github.com/drabdulkarim6927-lab/codethone.git)",
+      "Bash(git push -u origin master)",
+      "Bash(npx prisma migrate deploy)",
+      "Bash(node -e \":*)",
+      "Bash(git add .gitignore netlify.toml package.json prisma/schema.prisma prisma/schema.production.prisma)",
+      "Bash(git commit:*)",
+      "Bash(git push origin master)",
+      "Bash(\"C:/Program Files/nodejs/node.exe\" ./node_modules/.bin/prisma generate --schema=prisma/schema.production.prisma)",
+      "Bash(\"C:/Program Files/nodejs/node.exe\" ./node_modules/prisma/bin/prisma.js generate --schema=prisma/schema.production.prisma)",
+      "Bash(DATABASE_URL=\"postgresql://neondb_owner:npg_IDu3qCAk2Qtb@ep-frosty-rain-aloq3rdz.c-3.eu-central-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require\" \"/c/Program Files/nodejs/npx\" prisma generate --schema=prisma/schema.production.prisma)",
+      "Bash(DATABASE_URL=\"postgresql://neondb_owner:npg_IDu3qCAk2Qtb@ep-frosty-rain-aloq3rdz.c-3.eu-central-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require\" \"/c/Program Files/nodejs/npx\" ts-node --compiler-options '{\"\"module\"\":\"\"CommonJS\"\"}' prisma/seed.ts)",
+      "Bash(\"/c/Program Files/nodejs/npx\" prisma generate --schema=prisma/schema.prisma)",
+      "Bash(git -C \"C:/Users/alkmp/OneDrive/Desktop/codethone1\" ls-files)",
+      "Bash(git add .gitignore)"
     ]
   }
 }

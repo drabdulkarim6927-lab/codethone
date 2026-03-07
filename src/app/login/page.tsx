@@ -30,7 +30,14 @@ export default function LoginPage() {
       localStorage.setItem("token", data.token);
       document.cookie = `token=${data.token}; path=/; max-age=${7 * 24 * 3600}`;
 
-      toast.success("تم تسجيل الدخول بنجاح!");
+      if (!data.user.isVerified) {
+        toast("تم تسجيل الدخول، لكن بريدك الإلكتروني لم يُفعَّل بعد. يُنصح بتفعيله لضمان استمرارية حسابك.", {
+          icon: "⚠️",
+          duration: 6000,
+        });
+      } else {
+        toast.success("تم تسجيل الدخول بنجاح!");
+      }
 
       const role = data.user.role;
       if (role === "ADMIN" || role === "SUPER_ADMIN") {
@@ -81,6 +88,9 @@ export default function LoginPage() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <label className="text-sm font-semibold text-gray-700">كلمة المرور</label>
+                  <Link href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-800 hover:underline">
+                    نسيت كلمة المرور؟
+                  </Link>
                 </div>
                 <input
                   type="password"

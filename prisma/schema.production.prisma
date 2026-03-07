@@ -9,14 +9,16 @@ datasource db {
 }
 
 model User {
-  id           Int          @id @default(autoincrement())
-  email        String       @unique
-  password     String
-  role         String       @default("MEMBER")
-  isVerified   Boolean      @default(false)
-  verifyToken  String?
-  createdAt    DateTime     @default(now())
-  participant  Participant?
+  id                Int          @id @default(autoincrement())
+  email             String       @unique
+  password          String
+  role              String       @default("MEMBER")
+  isVerified        Boolean      @default(false)
+  verifyToken       String?
+  resetToken        String?
+  resetTokenExpiry  DateTime?
+  createdAt         DateTime     @default(now())
+  participant       Participant?
 }
 
 model Participant {

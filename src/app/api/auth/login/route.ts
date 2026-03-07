@@ -22,10 +22,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "البريد الإلكتروني أو كلمة المرور غير صحيحة" }, { status: 401 });
     }
 
-    if (!user.isVerified) {
-      return NextResponse.json({ message: "يُرجى تفعيل بريدك الإلكتروني أولاً" }, { status: 403 });
-    }
-
     const token = signToken({
       userId: user.id,
       email: user.email,
@@ -35,7 +31,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       token,
-      user: { id: user.id, email: user.email, role: user.role },
+      user: { id: user.id, email: user.email, role: user.role, isVerified: user.isVerified },
     });
   } catch (error) {
     console.error("Login error:", error);
