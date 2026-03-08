@@ -1,4 +1,6 @@
-// v2
+// force fresh render on every request - prevents stale ISR cache with wrong CSS hash
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
