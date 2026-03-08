@@ -1,3 +1,4 @@
+// Layout v2 - force all page edge functions to regenerate
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
