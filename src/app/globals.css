@@ -2,6 +2,7 @@
 
 @tailwind base;
 @tailwind components;
+/* v2 */
 @tailwind utilities;
 
 :root {
