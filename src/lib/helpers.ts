@@ -1,7 +1,8 @@
-import crypto from "crypto";
-
 export function generateToken(): string {
-  return crypto.randomBytes(32).toString("hex");
+  // Use Web Crypto API (available in Node.js 18+ and all modern browsers)
+  return Array.from(
+    globalThis.crypto.getRandomValues(new Uint8Array(32))
+  ).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
 export const ROLES = {
