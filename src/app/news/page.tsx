@@ -1,3 +1,4 @@
+// v2
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { prisma } from "@/lib/db";
